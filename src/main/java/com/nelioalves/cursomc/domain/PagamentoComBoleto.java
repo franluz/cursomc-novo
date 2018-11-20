@@ -16,9 +16,10 @@ public class PagamentoComBoleto extends Pagamento  {
 	private static final long serialVersionUID = 1L;
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="dd/mm/yyy HH:mm")
+ 
 	private Date dataVencimento;
-	@JsonFormat(pattern="dd/mm/yyy HH:mm")
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd/mm/yyy HH:mm")
 	private Date dataPagamento;
 	/**
 	 * 
