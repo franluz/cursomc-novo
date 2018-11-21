@@ -36,8 +36,12 @@ public class CategoriaService {
 		return repo.save(obj);
 	}
 	public Categoria update(Categoria obj)  throws ObjectNotFoundException {
-		find(obj.getId());
-		return repo.save(obj);
+		Categoria objNew = find(obj.getId());
+		updateData(objNew,obj);
+		return repo.save(objNew);
+	}
+	private void updateData(Categoria objNew, Categoria obj) {
+		objNew.setNome(obj.getNome());;		
 	}
 	public Page<Categoria> findPage(Integer page,Integer linesPerPage,String orderBy,String direction){
 		PageRequest pagRequest = PageRequest.of(page, linesPerPage,Direction.valueOf(direction),orderBy);
