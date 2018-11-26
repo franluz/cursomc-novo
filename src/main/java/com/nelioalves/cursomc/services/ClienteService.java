@@ -1,8 +1,8 @@
 package com.nelioalves.cursomc.services;
 
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
 
@@ -66,8 +66,8 @@ public class ClienteService {
 				cli, cidade);
 		cli.getEnderecos().add(end);
 		
-		Arrays.asList(dto.getTelefone1(), dto.getTelefone2(), dto.getTelefone3())
-			.stream().filter(Objects::nonNull).forEach(cli.getTelefones()::add);
+		Stream.of(dto.getTelefone1(), dto.getTelefone2(), dto.getTelefone3())
+			.filter(Objects::nonNull).forEach(cli.getTelefones()::add);
 		return cli;
 		
 	}
