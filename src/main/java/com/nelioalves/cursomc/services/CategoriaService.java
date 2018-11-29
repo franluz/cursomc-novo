@@ -29,7 +29,7 @@ public class CategoriaService {
 	}
 	public List< Categoria> findAll()  {
 		List< Categoria> list = repo.findAll();
-		return list; //esse
+		return list;
 	}
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
